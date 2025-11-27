@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Jogos 2010-2025 | Gamer Timeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Audiowide&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dark-bg: #0A0A1A;
+            --neon-purple: #6B00FF;
+            --neon-cyan: #00E6FF;
+            --neon-blue: #0099FF;
+            --white: #FFFFFF;
+            --card-bg: rgba(15, 15, 35, 0.8);
+            --card-border: rgba(107, 0, 255, 0.3);
+            --text-glow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+            --box-glow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-purple);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: var(--text-glow);
+            animation: pulse 3s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--neon-cyan);
+            font-family: 'Audiowide', cursive;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:hover {
+            color: var(--dark-bg);
+            box-shadow: var(--box-glow);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--neon-cyan);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        /* Timeline Section - Nova Versão */
+        .timeline {
+            position: relative;
+            padding: 100px 0;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-scroll {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+            justify-content: center;
+        }
+
+        .timeline-item {
+            width: 100%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--card-border);
+            transition: all 0.5s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline-content:hover {
+            box-shadow: var(--box-glow);
+            transform: translateY(-10px);
+        }
+
+        .timeline-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .timeline-game {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .timeline-studio {
+            font-size: 1rem;
+            color: var(--neon-blue);
+            margin-bottom: 15px;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: #CCCCCC;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .timeline-rating {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .stars {
+            color: gold;
+            margin-right: 10px;
+        }
+
+        .timeline-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-details p {
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        /* Highlights Section */
+        .highlights {
+            background: linear-gradient(135deg, rgba(10, 10, 26, 0.9), rgba(15, 15, 40, 0.9));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--white);
+            text-shadow: var(--text-glow);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--card-border);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--box-glow);
+        }
+
+        .highlight-img {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s ease;
+        }
+
+        .highlight-card:hover .highlight-img {
+            transform: scale(1.1);
+        }
+
+        .highlight-content {
+            padding: 20px;
+        }
+
+        .highlight-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .highlight-desc {
+            font-size: 0.9rem;
+            color: #CCCCCC;
+            margin-bottom: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            position: relative;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--box-glow);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 10, 26, 0.9), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        /* Facts Section */
+        .facts {
+            background: linear-gradient(135deg, rgba(15, 15, 40, 0.9), rgba(10, 10, 26, 0.9));
+        }
+
+        .facts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .fact-card {
+            flex: 1;
+            min-width: 350px;
+            max-width: 500px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        .fact-card:hover {
+            box-shadow: var(--box-glow);
+        }
+
+        .fact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--neon-cyan);
+        }
+
+        .fact-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .fact-desc {
+            font-size: 0.9rem;
+            color: #CCCCCC;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--neon-purple);
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-cyan);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--card-border);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-glow);
+            color: var(--white);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-glow);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--neon-cyan);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .modal-desc {
+            color: #CCCCCC;
+            line-height: 1.6;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--neon-purple);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--neon-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+            }
+            100% {
+                text-shadow: 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .facts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .fact-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .timeline-year {
+                font-size: 1.5rem;
+            }
+
+            .timeline-game {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <h1>Mural de Jogos do Grupo Gamer!</h1>
+            <p>Nossa equipe disponibiliza jogos na feira para garantir momentos de diversão.</p>  
+            <a href="#timeline" class="btn">Explorar Nossos Produtos</a>
+        </div>
+    </section>
+
+    <!-- Timeline Section - Nova Versão -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 class="section-title">Jogos que Serão Disponibilizados!</h2>
+            <div class="timeline-scroll">
+                <!-- Timeline items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section id="highlights" class="highlights">
+        <div class="container">
+            <h2 class="section-title">Destaques Épicos</h2>
+            <div class="highlights-grid">
+                <!-- Highlight cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeria de Imagens</h2>
+            <div class="gallery-grid">
+                <!-- Gallery items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section id="facts" class="facts">
+        <div class="container">
+            <h2 class="section-title">Curiosidade Gamer</h2>
+            <div class="facts-container">
+                <!-- Fact cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="#" class="social-icon">G</a>
+                    <a href="#" class="social-icon">D</a>
+                    <a href="#" class="social-icon">C</a>
+                    <a href="#" class="social-icon">D</a>
+                    <a href="#" class="social-icon">J</a>
+                    <a href="#" class="social-icon">S</a>
+                </div>
+                <div style="text-align: center;">
+                    <p class="copyright" style="color: white; margin: 5px 0;">© 2025 – Todos os direitos reservados.</p>
+                    <p class="instagram" style="color: white; margin: 5px 0;">
+                        <a href="https://instagram.com/nexasite_studio" target="_blank" style="color: white; text-decoration: none;">
+                            📷 @nexasite_studio
+                        </a> - Parceiro 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalGameTitle">Título do Jogo</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modalGameImage" src="" alt="" class="modal-img">
+                <p id="modalGameDesc" class="modal-desc">Descrição do jogo...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">↑</button>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Game Data
+        const gamesData = [
+            {
+                year: 2021,
+                title: "Forza Horizon 4",
+                studio: "Playground Games",
+                description: "Jogo de corrida em mundo aberto ambientado no México, com gráficos impressionantes e vasta coleção de veículos.",
+                impact: "Considerado um dos melhores jogos de corrida da geração, com elogios unânimes pela jogabilidade e apresentação visual.",
+                rating: 92,
+                image: "Forza.jpg",
+                awards: "Vencedor de múltiplos prêmios de Melhor Jogo de Corrida",
+            },
+            {
+                year: 2022,
+                title: "FIFA 23",
+                studio: "EA Sports",
+                description: "Último jogo da série FIFA com licenças oficiais, modos de jogo diversificados e jogabilidade aprimorada.",
+                impact: "Marcou o fim da icônica série FIFA após 30 anos, sendo um dos jogos de futebol mais vendidos da história.",
+                rating: 82,
+                image: "FIFA pix.jpg",
+                awards: "Vencedor de prêmios de Melhor Jogo Esportivo",
+            },
+            {
+                year: 2019,
+                title: "Mortal Kombat 11",
+                studio: "NetherRealm Studios",
+                description: "Jogo de luta com violência extrema, história cinemática e elenco diversificado de personagens clássicos e novos.",
+                impact: "Aclamado pela crítica por sua jogabilidade refinada, modo história e gráficos realistas, solidificando a franquia como referência em jogos de luta.",
+                rating: 86,
+                image: "Mortal.jpg",
+                awards: "Vencedor de prêmios de Melhor Jogo de Luta",
+            },
+            {
+                year: 2023,
+                title: "Five Nights at Freddy's: Into the Pit",
+                studio: "Scott Cawthon, Mega Cat Studios",
+                description: "Spin-off da franquia Five Nights at Freddy's com jogabilidade estilo RPG e elementos de aventura, baseado nos livros da série.",
+                impact: "Expandiu o universo de FNAF para novos gêneros, oferecendo uma experiência diferente dos jogos originais de terror de sobrevivência.",
+                rating: 72,
+                image: "Into.jpg",
+                awards: "Indicado a Melhor Jogo Independente"
+            },
+            {
+                year: 2013,
+                title: "Grand Theft Auto V",
+                studio: "Rockstar Games",
+                description: "Jogo de ação e aventura em mundo aberto que segue três protagonistas em Los Santos, uma paródia de Los Angeles.",
+                impact: "Um dos jogos mais vendidos e lucrativos de todos os tempos, revolucionando os jogos de mundo aberto com sua narrativa múltipla.",
+                rating: 97,
+                image: "GTA.webp",
+                awards: "Vencedor de múltiplos prêmios de Jogo do Ano",
+            }
+        ];
+
+        const highlightsData = [
+            {
+                title: "Óculos Virtual",
+                description: "Tecnologia de imersão em realidade virtual.",
+                image: "Chat.png"
+            },
+            {
+                title: "Campeonato de FIFA 23",
+                description: "Competição de FIFA oficial com os melhores jogadores, valendo premiações.",
+                image: "fifa.jpg"
+            },
+        ];
+
+        const galleryData = [
+            {
+                title: "Forza Horizon",
+                image: "Forza 1.jpg", 
+            },
+            {
+                title: "Ghosts of Tsushima",
+                image: "Tsushima.jpeg",  
+            },
+            {
+                title: "GTA 5",
+                image: "GT.webp",   
+            },
+            {
+                title: "Red Dead Redemption 2",
+                image: "RED.webp",
+            },
+            {
+                title: "Resident Evil 4",
+                image: "RE4.jpg",
+            },
+            {
+                title: "The Last of Us",
+                image: "Last.jpeg",
+            },
+            {
+                title: "God of War",
+                image: "god.webp",
+            },
+            {
+                title: "Ghost in Call of Duty",
+                image: "call.jpg",
+            },
+        ];
+
+        const factsData = [
+            {
+                icon: "🏆",
+                title: "Preços",
+                description: `
+                    <div style="margin: 10px 0; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                        <div style="font-size: 1.2rem; font-weight: bold;">🎯 Inscrição do Campeonato de FIFA - R$ 8,00</div>
+                        <div style="font-size: 1rem;"></div>
+                    </div>
+                    <div style="margin: 10px 0; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                        <div style="font-size: 1.2rem; font-weight: bold;">⚽ Demais Jogos - R$ 5,00</div>
+                        <div style="font-size: 1rem;">10 minutos cada</div>
+                    </div>
+                    <div style="margin: 10px 0; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                        <div style="font-size: 1.2rem; font-weight: bold;">🕶️ Óculos VR - R$ 7,00</div>
+                        <div style="font-size: 1rem;">10 Minutos</div>
+                    </div>
+                `
+            },
+            {
+                icon: "👥",
+                title: "QUEM SOMOS",
+                description: `
+                    <p>A NexaSite Studio é um grupo de entusiastas desenvolvedores que trabalham na criação de sites e aplicações modernas, oferecendo soluções criativas, funcionais e acessíveis para quem deseja ter presença digital profissional.</p>
+                    <div style="margin-top: 15px;">
+                        <h4 style="color: var(--neon-cyan);">NOVO OBJETIVO</h4>
+                      <p> Ampliar nossa presença no mercado de desenvolvimento digital, oferecendo sites profissionais e soluções modernas para empresas e empreendedores, ajudando nossos clientes a conquistar destaque e crescer no ambiente online.</p>
+                    </div>
+                `
+            }
+        ];
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#6B00FF", "#00E6FF", "#0099FF"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 400,
+                        color: "#6B00FF",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    }
+                }
+            });
+
+            // Generate timeline - Nova Versão
+            const timelineScroll = document.querySelector('.timeline-scroll');
+            gamesData.forEach((game, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+
+                const stars = '★'.repeat(Math.floor(game.rating / 20));
+
+                timelineItem.innerHTML = `
+                    <div class="timeline-content">
+                        <img src="${game.image}" alt="${game.title}" class="timeline-img">
+                        <div class="timeline-info">
+                            <div class="timeline-year">${game.year}</div>
+                            <h3 class="timeline-game">${game.title}</h3>
+                            <div class="timeline-studio">${game.studio}</div>
+                            <p class="timeline-desc">${game.description}</p>
+                            <div class="timeline-rating">
+                                <div class="stars">${stars}</div>
+                                <div>${game.rating}/100</div>
+                            </div>
+                            <div class="timeline-details">
+                                <p><strong>Impacto:</strong> ${game.impact}</p>
+                                <p><strong>Prêmios:</strong> ${game.awards}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                timelineScroll.appendChild(timelineItem);
+            });
+
+            // Generate highlights
+            const highlightsGrid = document.querySelector('.highlights-grid');
+            highlightsData.forEach(highlight => {
+                const highlightCard = document.createElement('div');
+                highlightCard.className = 'highlight-card';
+                highlightCard.innerHTML = `
+                    <div class="highlight-img" style="background-image: url('${highlight.image}')"></div>
+                    <div class="highlight-content">
+                        <h3 class="highlight-title">${highlight.title}</h3>
+                        <p class="highlight-desc">${highlight.description}</p>
+                        <button class="btn view-more-btn" data-game="${highlight.title}">Ver Mais</button>
+                    </div>
+                `;
+                highlightsGrid.appendChild(highlightCard);
+            });
+
+            // Generate gallery
+            const galleryGrid = document.querySelector('.gallery-grid');
+            galleryData.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">${item.title}</h3>
+                    </div>
+                `;
+
+                galleryItem.addEventListener('click', () => {
+                    openModal(item.title, item.image, item.description);
+                });
+
+                galleryGrid.appendChild(galleryItem);
+            });
+
+            // Generate facts
+            const factsContainer = document.querySelector('.facts-container');
+            factsData.forEach(fact => {
+                const factCard = document.createElement('div');
+                factCard.className = 'fact-card';
+                factCard.innerHTML = `
+                    <div class="fact-icon">${fact.icon}</div>
+                    <h3 class="fact-title">${fact.title}</h3>
+                    <p class="fact-desc">${fact.description}</p>
+                `;
+                factsContainer.appendChild(factCard);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Modal functionality
+            const modal = document.getElementById('gameModal');
+            const closeModalBtn = document.querySelector('.close-modal');
+            const viewMoreBtns = document.querySelectorAll('.view-more-btn');
+
+            function openModal(title, image, description) {
+                document.getElementById('modalGameTitle').textContent = title;
+                document.getElementById('modalGameImage').src = image;
+                document.getElementById('modalGameImage').alt = title;
+                document.getElementById('modalGameDesc').textContent = description;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            viewMoreBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const gameTitle = btn.getAttribute('data-game');
+                    const game = [...gamesData, ...highlightsData].find(g => g.title === gameTitle);
+                    if (game) {
+                        openModal(game.title, game.image, game.description || game.impact);
+                    }
+                });
+            });
+
+            // Scroll animations
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
